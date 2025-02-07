@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthopedic Devices - Worldwide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f8f9fa;
+        }
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 14px;
+            color: #0073e6;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+        h1 {
+            font-size: 32px;
+            color: #003366;
+        }
+        .badge {
+            background-color: #0073e6;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 20px;
+            border-bottom: 2px solid #ccc;
+            margin-top: 20px;
+            padding-bottom: 10px;
+        }
+        .tabs div {
+            font-weight: bold;
+            color: #003366;
+            cursor: pointer;
+        }
+        .tabs .active {
+            border-bottom: 3px solid #0073e6;
+            padding-bottom: 5px;
+        }
+        /* Dropdown Section */
+        .dropdown-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        .dropdown {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+        .dropdown label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #495057;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background: white;
+            min-width: 200px;
+        }
+        select:focus {
+            outline: 2px solid #0073e6;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Page Title -->
+    <h1>Medical Devices - Worldwide</h1>
+    <span class="badge">Worldwide</span>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="active">HIGHLIGHTS</div>
+        <div>MARKET DEFINITION</div>
+        <div>IN-SCOPE / OUT-OF-SCOPE</div>
+        <div>MARKET STRUCTURE</div>
+        <div>REPORTS</div>
+        <div>METHODOLOGY</div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <ul>
+            <li>The projected revenue in the Orthopedic Devices market is set to reach US$48.94bn by 2025.</li>
+            <li>This market is expected to demonstrate an annual growth rate (CAGR 2025-2029) of 3.89%, leading to a market volume of US$57.02bn by 2029.</li>
+            <li>When comparing this market globally, it is important to note that the United States is anticipated to generate the highest revenue, amounting to US$16,630.00m in 2025.</li>
+            <li>In the worldwide market for orthopedic devices, the United States leads the way with its advanced technology and high demand for innovative solutions.</li>
+        </ul>
+
+        <!-- Key Regions -->
+        <div class="key-regions">
+            Key regions: 
+            <a href="#">France</a>
+            <a href="#">Netherlands</a>
+            <a href="#">Europe</a>
+            <a href="#">Germany</a>
+            <a href="#">Japan</a>
+        </div>
+    </div>
+
+    <!-- Dropdown Filters -->
+    <div class="dropdown-container">
+        <!-- Market Dropdown -->
+        <div class="dropdown">
+            <label for="market">Market</label>
+            <select id="market">
+                <option>Select Product</option>
+                <option>Spine Implant</option>
+                <option>IVD</option>
+            </select>
+        </div>
+
+        <!-- Region Dropdown -->
+        <div class="dropdown">
+            <label for="region">Region</label>
+            <select id="region" onchange="updateComparisonDropdown()">
+                <option value="Worldwide">Worldwide</option>
+                <option value="North America">North America</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia-Pacific">Asia-Pacific</option>
+                <option value="Latin America">Latin America</option>
+            </select>
+        </div>
+
+        <!-- Region Comparison Dropdown -->
+        <div class="dropdown">
+            <label for="region-compare">Region Comparison</label>
+            <select id="region-compare">
+                <option>Select Region to Compare</option>
+                <option value="North America">North America</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia-Pacific">Asia-Pacific</option>
+                <option value="Latin America">Latin America</option>
+            </select>
+        </div>
+    </div>
+
+
+    <!-- JavaScript to Handle Region Comparison -->
+    <script>
+        function updateComparisonDropdown() {
+            let regionSelect = document.getElementById("region");
+            let selectedRegion = regionSelect.value;
+            let comparisonSelect = document.getElementById("region-compare");
+
+            // All possible regions
+            let regions = ["North America", "Europe", "Asia-Pacific", "Latin America"];
+
+            // Clear existing options
+            comparisonSelect.innerHTML = "";
+
+            // Add default option
+            let defaultOption = document.createElement("option");
+            defaultOption.text = "Select Region to Compare";
+            defaultOption.value = "";
+            comparisonSelect.appendChild(defaultOption);
+
+            // Add remaining regions except the selected one
+            regions.forEach(region => {
+                if (region !== selectedRegion) {
+                    let option = document.createElement("option");
+                    option.text = region;
+                    option.value = region;
+                    comparisonSelect.appendChild(option);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
