@@ -1,194 +1,718 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orthopedic Devices - Worldwide</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f8f9fa;
-        }
-        /* Breadcrumb */
-        .breadcrumb {
-            font-size: 14px;
-            color: #0073e6;
-        }
-        .breadcrumb a {
-            text-decoration: none;
-            color: #0073e6;
-        }
-        h1 {
-            font-size: 32px;
-            color: #003366;
-        }
-        .badge {
-            background-color: #0073e6;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: bold;
-            display: inline-block;
-        }
-        /* Tabs */
-        .tabs {
-            display: flex;
-            gap: 20px;
-            border-bottom: 2px solid #ccc;
-            margin-top: 20px;
-            padding-bottom: 10px;
-        }
-        .tabs div {
-            font-weight: bold;
-            color: #003366;
-            cursor: pointer;
-        }
-        .tabs .active {
-            border-bottom: 3px solid #0073e6;
-            padding-bottom: 5px;
-        }
-        /* Dropdown Section */
-        .dropdown-container {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-        }
-        .dropdown {
-            display: flex;
-            flex-direction: column;
-            font-size: 14px;
-        }
-        .dropdown label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #495057;
-        }
-        select {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-            background: white;
-            min-width: 200px;
-        }
-        select:focus {
-            outline: 2px solid #0073e6;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- The title tag gets updated dynamically -->
+  <title id="page-title">Medical Devices - Highlights</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8f9fa;
+    }
+    h1 {
+      font-size: 32px;
+      color: #003366;
+    }
+    .badge {
+      background-color: #0073e6;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 10px;
+    }
+    /* Tabs styling */
+    .tabs {
+      display: flex;
+      gap: 20px;
+      border-bottom: 2px solid #ccc;
+      margin-top: 20px;
+      padding-bottom: 10px;
+    }
+    .tabs div {
+      font-weight: bold;
+      color: #003366;
+      cursor: pointer;
+    }
+    .tabs .active {
+      border-bottom: 3px solid #0073e6;
+      padding-bottom: 5px;
+    }
+    /* Section styling */
+    .section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .section h2 {
+      color: #003366;
+    }
+    /* Dropdown container styling */
+    .dropdown-container {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .dropdown {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+    }
+    .dropdown label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #495057;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      background: white;
+      min-width: 200px;
+    }
+    select:focus {
+      outline: 2px solid #0073e6;
+    }
+    /* Graph and Conclusion Styles */
+    /* Single Graph Container (centered) */
+    #chartdiv {
+      width: 50%;
+      height: 500px;
+      box-sizing: border-box;
+      margin: 0 auto 10px auto;
+    }
+    /* Comparison Graph Containers */
+    #chartdiv1, #chartdiv2 {
+      width: 48%;
+      height: 500px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    #chartdiv1, #chartdiv2 {
+      display: inline-block;
+      vertical-align: top;
+    }
+    #chartdiv2 {
+      margin-right: 0;
+    }
+    .conclusion {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+      min-height: 40px; /* Reserve space for the text */
+    }
+  </style>
 </head>
 <body>
+  <!-- Upper Heading -->
+  <h1 id="main-title">Medical Devices - Highlights</h1>
+  <!-- A badge showing the region (updated dynamically if needed) -->
+  <span class="badge" id="regionBadge">Worldwide</span>
 
+  <!-- Tabs (Highlights tab is active; other tabs are placeholders) -->
+  <div class="tabs">
+    <div class="active">HIGHLIGHTS</div>
+    <div>MARKET DEFINITION</div>
+    <div>IN-SCOPE / OUT-OF-SCOPE</div>
+    <div>MARKET STRUCTURE</div>
+    <div>REPORTS</div>
+    <div>METHODOLOGY</div>
+  </div>
 
-    <!-- Page Title -->
-    <h1>Medical Devices - Worldwide</h1>
-    <span class="badge">Worldwide</span>
+  <!-- Highlights Section (always at the top) -->
+  <div class="section" id="highlights">
+    <h2>Highlights</h2>
+    <ul id="highlightsList">
+      <!-- Dynamic highlight points will be injected here -->
+    </ul>
+  </div>
 
-    <!-- Tabs -->
-    <div class="tabs">
-        <div class="active">HIGHLIGHTS</div>
-        <div>MARKET DEFINITION</div>
-        <div>IN-SCOPE / OUT-OF-SCOPE</div>
-        <div>MARKET STRUCTURE</div>
-        <div>REPORTS</div>
-        <div>METHODOLOGY</div>
+  <!-- Dropdown Filters -->
+  <div class="dropdown-container">
+    <!-- Market Dropdown -->
+    <div class="dropdown">
+      <label for="market">Market</label>
+      <select id="market">
+        <option value="IVD">IVD</option>
+        <option value="Spine Implant">Spine Implant</option>
+      </select>
     </div>
 
-    <!-- Content Section -->
-    <div class="content">
-        <ul>
-            <li>The projected revenue in the Orthopedic Devices market is set to reach US$48.94bn by 2025.</li>
-            <li>This market is expected to demonstrate an annual growth rate (CAGR 2025-2029) of 3.89%, leading to a market volume of US$57.02bn by 2029.</li>
-            <li>When comparing this market globally, it is important to note that the United States is anticipated to generate the highest revenue, amounting to US$16,630.00m in 2025.</li>
-            <li>In the worldwide market for orthopedic devices, the United States leads the way with its advanced technology and high demand for innovative solutions.</li>
-        </ul>
-
-        <!-- Key Regions -->
-        <div class="key-regions">
-            Key regions: 
-            <a href="#">France</a>
-            <a href="#">Netherlands</a>
-            <a href="#">Europe</a>
-            <a href="#">Germany</a>
-            <a href="#">Japan</a>
-        </div>
+    <!-- Region Dropdown -->
+    <div class="dropdown">
+      <label for="region">Region</label>
+      <select id="region">
+        <option value="Worldwide">Worldwide</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Africa">Africa</option>
+        <option value="Australia">Australia</option>
+      </select>
     </div>
 
-    <!-- Dropdown Filters -->
-    <div class="dropdown-container">
-        <!-- Market Dropdown -->
-        <div class="dropdown">
-            <label for="market">Market</label>
-            <select id="market">
-                <option>Select Product</option>
-                <option>Spine Implant</option>
-                <option>IVD</option>
-            </select>
-        </div>
-
-        <!-- Region Dropdown -->
-        <div class="dropdown">
-            <label for="region">Region</label>
-            <select id="region" onchange="updateComparisonDropdown()">
-                <option value="Worldwide">Worldwide</option>
-                <option value="North America">North America</option>
-                <option value="Europe">Europe</option>
-                <option value="Asia-Pacific">Asia-Pacific</option>
-                <option value="Latin America">Latin America</option>
-            </select>
-        </div>
-
-        <!-- Region Comparison Dropdown -->
-        <div class="dropdown">
-            <label for="region-compare">Region Comparison</label>
-            <select id="region-compare">
-                <option>Select Region to Compare</option>
-                <option value="North America">North America</option>
-                <option value="Europe">Europe</option>
-                <option value="Asia-Pacific">Asia-Pacific</option>
-                <option value="Latin America">Latin America</option>
-            </select>
-        </div>
+    <!-- Region Comparison Dropdown -->
+    <div class="dropdown">
+      <label for="region-compare">Region Comparison</label>
+      <select id="region-compare">
+        <!-- Default option with an empty value -->
+        <option value="">Select Region to Compare</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Africa">Africa</option>
+        <option value="Australia">Australia</option> 
+      </select>
     </div>
+  </div>
 
+  <!-- Loader (Loading Animation) -->
+  <div id="loading" class="loader" style="display: none;">Loading...</div>
 
-    <!-- JavaScript to Handle Region Comparison -->
-    <script>
-        function updateComparisonDropdown() {
-            let regionSelect = document.getElementById("region");
-            let selectedRegion = regionSelect.value;
-            let comparisonSelect = document.getElementById("region-compare");
+  <!-- Single Chart Mode Containers -->
+  <div id="chartdiv"></div>
+  <div id="conclusiondiv" class="conclusion"></div>
 
-            // All possible regions
-            let regions = ["North America", "Europe", "Asia-Pacific", "Latin America"];
+  <!-- Comparison Mode Containers -->
+  <div id="chartdiv1" style="display: none;"></div>
+  <div id="chartdiv2" style="display: none;"></div>
+  <div id="conclusionCombined" class="conclusion" style="display: none;"></div>
 
-            // Clear existing options
-            comparisonSelect.innerHTML = "";
+  <!-- Graphs Section (optional: for additional graph data text) -->
+  <div class="section" id="graphSection">
+    <h2>Graphs</h2>
+    <div id="graphContent"></div>
+  </div>
 
-            // Add default option
-            let defaultOption = document.createElement("option");
-            defaultOption.text = "Select Region to Compare";
-            defaultOption.value = "";
-            comparisonSelect.appendChild(defaultOption);
-
-            // Add remaining regions except the selected one
-            regions.forEach(region => {
-                if (region !== selectedRegion) {
-                    let option = document.createElement("option");
-                    option.text = region;
-                    option.value = region;
-                    comparisonSelect.appendChild(option);
-                }
-            });
+  <!-- amCharts and Graph Code -->
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script>
+    // Update the Comparison Dropdown to exclude the currently selected Region.
+    function updateComparisonDropdown() {
+      let regionSelect = document.getElementById("region");
+      let selectedRegion = regionSelect.value;
+      let comparisonSelect = document.getElementById("region-compare");
+      // All possible regions for comparison (excluding "Worldwide")
+      let regions = ["Asia", "Europe", "North America", "South America", "Africa", "Australia"];
+      // Clear existing options
+      comparisonSelect.innerHTML = "";
+      // Add default option with empty value
+      let defaultOption = document.createElement("option");
+      defaultOption.text = "Select Region to Compare";
+      defaultOption.value = "";
+      comparisonSelect.appendChild(defaultOption);
+      // Add remaining regions except the selected one
+      regions.forEach(region => {
+        if (region !== selectedRegion) {
+          let option = document.createElement("option");
+          option.text = region;
+          option.value = region;
+          comparisonSelect.appendChild(option);
         }
-    </script>
+      });
+    }
+  </script>
+  <script>
+    am5.ready(function() {
 
+      /***********************
+       * Data & Flag Mappings
+       ***********************/
+      
+      var flags = {
+        "USA": "https://flagcdn.com/w20/us.png",
+        "China": "https://flagcdn.com/w20/cn.png",
+        "Japan": "https://flagcdn.com/w20/jp.png",
+        "Germany": "https://flagcdn.com/w20/de.png",
+        "UK": "https://flagcdn.com/w20/gb.png",
+        "France": "https://flagcdn.com/w20/fr.png",
+        "India": "https://flagcdn.com/w20/in.png",
+        "Spain": "https://flagcdn.com/w20/es.png",
+        "Netherlands": "https://flagcdn.com/w20/nl.png",
+        "South Korea": "https://flagcdn.com/w20/kr.png",
+        "Canada": "https://flagcdn.com/w20/ca.png",
+        "Singapore": "https://flagcdn.com/w20/sg.png",
+        "Bangladesh": "https://flagcdn.com/w20/bd.png",
+        "Vietnam": "https://flagcdn.com/w20/vn.png",
+        "Malaysia": "https://flagcdn.com/w20/my.png",
+        "Indonesia": "https://flagcdn.com/w20/id.png",
+        "UAE": "https://flagcdn.com/w20/ae.png",
+        "Israel": "https://flagcdn.com/w20/il.png",
+        "Saudi Arabia": "https://flagcdn.com/w20/sa.png",
+        "Russia": "https://flagcdn.com/w20/ru.png",
+        "Italy": "https://flagcdn.com/w20/it.png",
+        "Hungary": "https://flagcdn.com/w20/hu.png",
+        "Poland": "https://flagcdn.com/w20/pl.png",
+        "Sweden": "https://flagcdn.com/w20/se.png",
+        "Turkey": "https://flagcdn.com/w20/tr.png",
+        "Brazil": "https://flagcdn.com/w20/br.png",
+        "Argentina": "https://flagcdn.com/w20/ar.png",
+        "Colombia": "https://flagcdn.com/w20/co.png",
+        "Mexico": "https://flagcdn.com/w20/mx.png",
+        "South Africa": "https://flagcdn.com/w20/za.png",
+        "Egypt": "https://flagcdn.com/w20/eg.png",
+        "Australia": "https://flagcdn.com/w20/au.png"
+      };
+
+      var productConfig = {
+        "Spine Implant": { minValue: 500, maxValue: 1500, minCagr: 5, maxCagr: 15 }
+      };
+
+      /***********************
+       * Real IVD Data
+       ***********************/
+      
+      var IVD_All_Regions = [
+        { country: "North America", marketValue: 33.53, cagr: 2.80, flag: "" },
+        { country: "South America", marketValue: 4.64, cagr: 3.67, flag: "" },
+        { country: "Australia & Oceania", marketValue: 1.36, cagr: 3.82, flag: "" },
+        { country: "Asia", marketValue: 25.5, cagr: 4.05, flag: "" },
+        { country: "Africa", marketValue: 1.72, cagr: 3.71, flag: "" },
+        { country: "Europe", marketValue: 22.4, cagr: 2.96, flag: "" }
+      ];
+
+      var IVD_Asia = [
+        { country: "Singapore", marketValue: 0.179, cagr: 5.47, flag: flags["Singapore"] },
+        { country: "India", marketValue: 1.70, cagr: 4.76, flag: flags["India"] },
+        { country: "China", marketValue: 8.620, cagr: 4.55, flag: flags["China"] },
+        { country: "Bangladesh", marketValue: 0.0537, cagr: 6.27, flag: flags["Bangladesh"] },
+        { country: "South Korea", marketValue: 3.930, cagr: 4.46, flag: flags["South Korea"] },
+        { country: "Vietnam", marketValue: 0.235, cagr: 5.43, flag: flags["Vietnam"] },
+        { country: "Malaysia", marketValue: 0.290, cagr: 4.50, flag: flags["Malaysia"] },
+        { country: "Indonesia", marketValue: 0.390, cagr: 4.78, flag: flags["Indonesia"] },
+        { country: "UAE", marketValue: 0.434, cagr: 5.73, flag: flags["UAE"] },
+        { country: "Israel", marketValue: 0.47, cagr: 4.01, flag: flags["Israel"] },
+        { country: "Saudi Arabia", marketValue: 1.04, cagr: 2.27, flag: flags["Saudi Arabia"] },
+        { country: "Russia", marketValue: 1.34, cagr: 2.17, flag: flags["Russia"] }
+      ];
+
+      var IVD_Europe = [
+        { country: "Germany", marketValue: 3.95, cagr: 3.14, flag: flags["Germany"] },
+        { country: "UK", marketValue: 1.88, cagr: 4.94, flag: flags["UK"] },
+        { country: "Italy", marketValue: 2.71, cagr: 2.14, flag: flags["Italy"] },
+        { country: "Hungary", marketValue: 0.132, cagr: 3.29, flag: flags["Hungary"] },
+        { country: "Spain", marketValue: 1.81, cagr: 2.53, flag: flags["Spain"] },
+        { country: "Poland", marketValue: 0.74, cagr: 2.91, flag: flags["Poland"] },
+        { country: "Sweden", marketValue: 0.304, cagr: 3.29, flag: flags["Sweden"] },
+        { country: "Turkey", marketValue: 0.97, cagr: 2.96, flag: flags["Turkey"] }
+      ];
+
+      var IVD_North_America = [
+        { country: "USA", marketValue: 30.3, cagr: 2.76, flag: flags["USA"] },
+        { country: "Mexico", marketValue: 1.44, cagr: 2.99, flag: flags["Mexico"] }
+      ];
+
+      var IVD_South_America = [
+        { country: "Brazil", marketValue: 1.85, cagr: 4.19, flag: flags["Brazil"] },
+        { country: "Argentina", marketValue: 1.15, cagr: 3.11, flag: flags["Argentina"] },
+        { country: "Colombia", marketValue: 0.53, cagr: 3.58, flag: flags["Colombia"] }
+      ];
+
+      var IVD_Africa = [
+        { country: "South Africa", marketValue: 0.48, cagr: 2.02, flag: flags["South Africa"] },
+        { country: "Egypt", marketValue: 0.215, cagr: 6.84, flag: flags["Egypt"] }
+      ];
+
+      var IVD_Australia = [
+        { country: "Australia", marketValue: 1.15, cagr: 3.70, flag: flags["Australia"] }
+      ];
+
+      /***********************
+       * Data Generation Function
+       ***********************/
+      
+      function getDataForRegion(region, product) {
+        if (product === "IVD") {
+          switch (region) {
+            case "Worldwide": return IVD_All_Regions;
+            case "Asia": return IVD_Asia;
+            case "Europe": return IVD_Europe;
+            case "North America": return IVD_North_America;
+            case "South America": return IVD_South_America;
+            case "Africa": return IVD_Africa;
+            case "Australia": return IVD_Australia;
+            default: return IVD_All_Regions;
+          }
+        } else {
+          var countries = ["USA", "China", "Japan", "Germany", "UK", "France", "India", "Spain", "Netherlands", "South Korea", "Canada"];
+          var config = productConfig[product] || { minValue: 500, maxValue: 1500, minCagr: 5, maxCagr: 15 };
+          return countries.map(function(country) {
+            var marketValue = Math.floor(Math.random() * (config.maxValue - config.minValue + 1)) + config.minValue;
+            var cagr = (Math.random() * (config.maxCagr - config.minCagr) + config.minCagr).toFixed(2);
+            return {
+              country: country,
+              marketValue: marketValue,
+              cagr: cagr,
+              flag: flags[country] || ""
+            };
+          });
+        }
+      }
+
+      /***********************
+       * Typing Effect Function
+       ***********************/
+      
+      function typeWriter(element, text, speed) {
+        element.innerHTML = "";
+        var i = 0;
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+
+      /***********************
+       * Conclusion Generation Functions
+       ***********************/
+      
+      // Single chart conclusion.
+      function getConclusion(data) {
+        if (!data || data.length === 0) return "";
+        var marketLeader = data[0], growthLeader = data[0];
+        data.forEach(function(item) {
+          if (parseFloat(item.marketValue) > parseFloat(marketLeader.marketValue)) {
+            marketLeader = item;
+          }
+          if (parseFloat(item.cagr) > parseFloat(growthLeader.cagr)) {
+            growthLeader = item;
+          }
+        });
+        return marketLeader.country + " leads in Market Value ($" + parseFloat(marketLeader.marketValue).toFixed(2) + "B, " +
+               marketLeader.cagr + "% CAGR), while " + growthLeader.country + " surpasses in growth (" +
+               growthLeader.cagr + "%, $" + parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
+      }
+
+      // Comparative conclusion for two regions.
+      function getComparativeConclusion(region1, data1, region2, data2) {
+        function getRegionConclusion(regionName, data, style) {
+          var marketLeader = data[0], growthLeader = data[0];
+          data.forEach(function(item) {
+            if (parseFloat(item.marketValue) > parseFloat(marketLeader.marketValue)) {
+              marketLeader = item;
+            }
+            if (parseFloat(item.cagr) > parseFloat(growthLeader.cagr)) {
+              growthLeader = item;
+            }
+          });
+          if (style === 1) {
+            return "For " + regionName + ", " + marketLeader.country + " ($" + parseFloat(marketLeader.marketValue).toFixed(2) + "B, " + marketLeader.cagr + "% CAGR) dominates the market value, while " +
+                   growthLeader.country + " leads in growth (" + growthLeader.cagr + "%, $" + parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
+          } else {
+            return "For " + regionName + ", " + marketLeader.country + " ($" + parseFloat(marketLeader.marketValue).toFixed(2) + "B, " + marketLeader.cagr + "% CAGR) holds the highest market value, but " +
+                   growthLeader.country + " outpaces in growth (" + growthLeader.cagr + "%, $" + parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
+          }
+        }
+        var conclusion1 = getRegionConclusion(region1, data1, 1);
+        var conclusion2 = getRegionConclusion(region2, data2, 2);
+        return conclusion1 + " Similarly, " + conclusion2;
+      }
+
+      /***********************
+       * Chart Creation Function
+       ***********************/
+      
+      function createChart(containerId, data, title) {
+        var root = am5.Root.new(containerId);
+        root.setThemes([ am5themes_Animated.new(root) ]);
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+          panX: true,
+          panY: true,
+          wheelX: "panX",
+          wheelY: "zoomX",
+          pinchZoomX: true,
+          paddingLeft: 20,
+          paddingRight: 20,
+          paddingTop: 60,
+          paddingBottom: 30
+        }));
+        var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+        cursor.lineY.set("visible", false);
+        var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30, minorGridEnabled: true });
+        xRenderer.labels.template.setAll({
+          rotation: -90,
+          centerY: am5.p50,
+          centerX: am5.p100,
+          paddingRight: 15
+        });
+        xRenderer.grid.template.setAll({ location: 1 });
+        var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+          maxDeviation: 0.3,
+          categoryField: "country",
+          renderer: xRenderer,
+          tooltip: am5.Tooltip.new(root, {})
+        }));
+        var yRenderer = am5xy.AxisRendererY.new(root, { strokeOpacity: 0.1 });
+        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+          maxDeviation: 0.3,
+          renderer: yRenderer
+        }));
+        var seriesTooltip = am5.Tooltip.new(root, {});
+        seriesTooltip.label.set("html", "<img src='{flag}' style='width:20px;height:15px;vertical-align:middle;margin-right:5px;'/>" +
+                                          "<b>{country}</b><br>" +
+                                          "Market Value: {marketValue} B<br>" +
+                                          "CAGR: {cagr}%");
+        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+          name: "Market Value",
+          xAxis: xAxis,
+          yAxis: yAxis,
+          valueYField: "marketValue",
+          sequencedInterpolation: true,
+          categoryXField: "country",
+          tooltip: seriesTooltip
+        }));
+        series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5, strokeOpacity: 0 });
+        series.columns.template.adapters.add("fill", function(fill, target) {
+          return chart.get("colors").getIndex(series.columns.indexOf(target));
+        });
+        series.columns.template.adapters.add("stroke", function(stroke, target) {
+          return chart.get("colors").getIndex(series.columns.indexOf(target));
+        });
+        series.bullets.push(function() {
+          return am5.Bullet.new(root, {
+            locationY: 0,
+            sprite: am5.Label.new(root, {
+              text: "{cagr}%",
+              centerX: am5.p50,
+              populateText: true,
+              fill: am5.color(0x000000),
+              dy: -10
+            })
+          });
+        });
+        xAxis.data.setAll(data);
+        series.data.setAll(data);
+        series.appear(1000);
+        chart.appear(1000, 100);
+        if (title) {
+          chart.children.unshift(am5.Label.new(root, {
+            text: title,
+            fontSize: 20,
+            fontWeight: "bold",
+            textAlign: "center",
+            x: am5.p50,
+            centerX: am5.p50,
+            marginBottom: 15,
+            y: 0
+          }));
+        }
+        return root;
+      }
+
+      /***********************
+       * Chart Update Logic
+       ***********************/
+      
+      var chartRootSingle = null;
+      var chartRootCompare1 = null;
+      var chartRootCompare2 = null;
+
+      function updateChart() {
+        var product = document.getElementById("market").value;
+        var region = document.getElementById("region").value;
+        var compareRegion = document.getElementById("region-compare").value;
+        
+        if (chartRootSingle) { chartRootSingle.dispose(); chartRootSingle = null; }
+        if (chartRootCompare1) { chartRootCompare1.dispose(); chartRootCompare1 = null; }
+        if (chartRootCompare2) { chartRootCompare2.dispose(); chartRootCompare2 = null; }
+        
+        document.getElementById("chartdiv").style.display = "none";
+        document.getElementById("conclusiondiv").style.display = "none";
+        document.getElementById("chartdiv1").style.display = "none";
+        document.getElementById("chartdiv2").style.display = "none";
+        document.getElementById("conclusionCombined").style.display = "none";
+        
+        if (compareRegion && compareRegion !== "") {
+          document.getElementById("loading").style.display = "block";
+          setTimeout(function() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("chartdiv1").style.display = "inline-block";
+            document.getElementById("chartdiv2").style.display = "inline-block";
+            document.getElementById("conclusionCombined").style.display = "block";
+            var data1 = getDataForRegion(region, product);
+            chartRootCompare1 = createChart("chartdiv1", data1, region + " (" + product + ")");
+            var data2 = getDataForRegion(compareRegion, product);
+            chartRootCompare2 = createChart("chartdiv2", data2, compareRegion + " (" + product + ")");
+            var combinedConclusion = getComparativeConclusion(region, data1, compareRegion, data2);
+            typeWriter(document.getElementById("conclusionCombined"), combinedConclusion, 9);
+          }, 1000);
+        } else {
+          document.getElementById("chartdiv").style.display = "block";
+          document.getElementById("conclusiondiv").style.display = "block";
+          var data = getDataForRegion(region, product);
+          chartRootSingle = createChart("chartdiv", data, region + " (" + product + ")");
+          var conclusionText = getConclusion(data);
+          typeWriter(document.getElementById("conclusiondiv"), conclusionText, 9);
+        }
+      }
+
+      /***********************
+       * Event Listeners for Charts
+       ***********************/
+      
+      document.getElementById("market").addEventListener("change", function() {
+        updateChart();
+        updateContent();
+      });
+      document.getElementById("region").addEventListener("change", function() {
+        updateChart();
+        updateContent();
+        updateComparisonDropdown();
+      });
+      document.getElementById("region-compare").addEventListener("change", function() {
+        updateChart();
+      });
+
+      updateChart();
+
+    }); // end am5.ready
+  </script>
+
+  <!-- JavaScript for Dynamic Content Updates -->
+  <script>
+    // Generic product-level fallback data 
+    var productData = {
+      "Spine Implant": {
+        title: "Spine Implant - Worldwide",
+        highlights: [
+          "The projected revenue in the Spine Implant market is set to reach US$50bn by 2025.",
+          "This market is expected to demonstrate a CAGR of 4.5% between 2025 and 2029, leading to a market volume of US$60bn by 2029.",
+          "The United States is anticipated to generate the highest revenue, amounting to US$18bn in 2025.",
+          "Advanced technology and innovative surgical solutions drive the global Spine Implant market."
+        ],
+        // === ADD SPINE DATA: Provide your Spine Implant graph data below ===
+        graphData: "Graph data for Spine Implant (Worldwide)."
+      },
+      "IVD": {
+        title: "IVD Devices - Worldwide",
+        highlights: [
+          "The projected revenue in the IVD Devices market is set to reach US$48.94bn by 2025.",
+          "This market is expected to grow at a CAGR of 3.89% between 2025 and 2029, reaching a market volume of US$57.02bn by 2029.",
+          "The United States is projected to generate the highest revenue, amounting to US$16,630.00m in 2025.",
+          "Strong demand for innovative diagnostic solutions and advanced technologies drives the IVD market globally."
+        ],
+        graphData: "Graph data for IVD Devices (Worldwide)."
+      }
+    };
+
+    // Combined data for specific region selections.
+    var combinedData = {
+      "Spine Implant": {
+        "Worldwide": {
+          highlights: productData["Spine Implant"].highlights,
+          graphData: productData["Spine Implant"].graphData
+        },
+        "Asia": {
+          highlights: [
+            "Spine Implant in Asia: Rapid growth due to increasing demand for innovative spinal solutions.",
+            "Local manufacturing improvements are driving cost-effectiveness in Asia."
+          ],
+          graphData: "Graph data for Spine Implant in Asia."
+        },
+        "Europe": {
+          highlights: [
+            "Spine Implant in Europe: Strong focus on minimally invasive procedures.",
+            "High adoption of advanced surgical technologies is seen in Europe."
+          ],
+          graphData: "Graph data for Spine Implant in Europe."
+        },
+        "North America": {
+          highlights: [
+            "Spine Implant in North America: Emphasis on technological innovation and quality.",
+            "The market shows robust revenue growth driven by advanced implant systems."
+          ],
+          graphData: "Graph data for Spine Implant in North America."
+        }
+        // Add additional regions as needed...
+      },
+      "IVD": {
+        "Worldwide": {
+          highlights: productData["IVD"].highlights,
+          graphData: productData["IVD"].graphData
+        },
+        "Asia": {
+          highlights: [
+            "IVD Devices in Asia: Strong demand for rapid and accurate diagnostic tools.",
+            "Emerging markets in Asia are investing in advanced diagnostic technologies."
+          ],
+          graphData: "Graph data for IVD Devices in Asia."
+        },
+        "Europe": {
+          highlights: [
+            "IVD Devices in Europe: Focus on regulatory compliance and high-quality standards.",
+            "Increased funding in healthcare drives innovation in IVD devices in Europe."
+          ],
+          graphData: "Graph data for IVD Devices in Europe."
+        },
+        "North America": {
+          highlights: [
+            "IVD Devices in North America: Leading market with high adoption of advanced diagnostic methods.",
+            "Innovation and research significantly influence the IVD landscape in North America."
+          ],
+          graphData: "Graph data for IVD Devices in North America."
+        }
+        // Add additional regions as needed...
+      }
+    };
+
+    // Update page content based on the current selections
+    function updateContent() {
+      var product = document.getElementById("market").value || "Spine Implant";
+      var region  = document.getElementById("region").value || "Worldwide";
+
+      // Update page title, main title, and badge.
+      var headingText = product + " - " + region;
+      document.getElementById("page-title").textContent = headingText;
+      document.getElementById("main-title").textContent = headingText;
+      document.getElementById("regionBadge").textContent = region;
+
+      // Use region-specific data if available; otherwise fallback to generic product data.
+      var data =
+        (combinedData[product] && combinedData[product][region]) ||
+        productData[product];
+
+      // Update the Highlights list.
+      var highlightsContainer = document.getElementById("highlightsList");
+      highlightsContainer.innerHTML = "";
+      if (data.highlights && data.highlights.length) {
+        data.highlights.forEach(function(point) {
+          var li = document.createElement("li");
+          li.textContent = point;
+          highlightsContainer.appendChild(li);
+        });
+      } else {
+        var li = document.createElement("li");
+        li.textContent = "No highlights available.";
+        highlightsContainer.appendChild(li);
+      }
+
+      // Optional: Update the Graph Content section if needed.
+      if(document.getElementById("graphContent")) {
+        document.getElementById("graphContent").innerText = data.graphData || "";
+      }
+    }
+
+    // Initial content update on page load.
+    document.addEventListener("DOMContentLoaded", function() {
+      updateContent();
+    });
+  </script>
 </body>
 </html>
