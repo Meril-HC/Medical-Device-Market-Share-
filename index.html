@@ -15,6 +15,22 @@
     font-size: 32px;
     color: #003366;
   }
+ .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes content to the edges */
+  margin-bottom: 20px;
+  position: relative; /* Ensures correct positioning */
+}
+
+.meril-logo {
+  height: 80px; /* Adjust size if needed */
+  position: absolute;
+  right: 0; /* Moves the logo to the far right */
+  top: 0; /* Aligns it at the top */
+  margin: 10px; /* Adds spacing to avoid sticking to edges */
+}
+  
   .badge {
     background-color: #0073e6;
     color: white;
@@ -117,15 +133,38 @@
     text-align: center;
     min-height: 40px; /* Reserve space for the text */
   }
+  /* Loader Styling */
+.loader {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #0073e6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1000; /* Ensures it appears above all content */
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 </style>
 </head>
 <body>
-  <!-- Upper Heading -->
-  <h1 id="main-title">Medical Devices - Highlights</h1>
-  <!-- A badge showing the region (updated dynamically if needed) -->
-  <span class="badge" id="regionBadge">Worldwide</span>
-
-  <!-- Tabs (Highlights tab is active; other tabs are placeholders) -->
+  <div class="header-container">
+    <div class="header-text">
+      <h1 id="main-title">Medical Devices - Highlights</h1>
+      <span class="badge" id="regionBadge">Worldwide</span>
+    </div>
+    <img src="https://www.merillife.com/assets/images/home/new/meril_logo_new.png" alt="Meril Logo" class="meril-logo">
+  </div>
   <div class="tabs">
     <div class="active">HIGHLIGHTS</div>
     <div>MARKET DEFINITION</div>
@@ -185,7 +224,7 @@
   </div>
 
   <!-- Loader (Loading Animation) -->
-  <div id="loading" class="loader" style="display: none;">Loading...</div>
+  <div id="loading" class="loader"></div>
 
   <!-- Single Chart Mode Containers -->
   <div id="chartdiv"></div>
