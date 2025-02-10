@@ -6,111 +6,118 @@
   <!-- The title tag gets updated dynamically -->
   <title id="page-title">Medical Devices - Highlights</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f8f9fa;
-    }
-    h1 {
-      font-size: 32px;
-      color: #003366;
-    }
-    .badge {
-      background-color: #0073e6;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: bold;
-      display: inline-block;
-      margin-left: 10px;
-    }
-    /* Tabs styling */
-    .tabs {
-      display: flex;
-      gap: 20px;
-      border-bottom: 2px solid #ccc;
-      margin-top: 20px;
-      padding-bottom: 10px;
-    }
-    .tabs div {
-      font-weight: bold;
-      color: #003366;
-      cursor: pointer;
-    }
-    .tabs .active {
-      border-bottom: 3px solid #0073e6;
-      padding-bottom: 5px;
-    }
-    /* Section styling */
-    .section {
-      background: white;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .section h2 {
-      color: #003366;
-    }
-    /* Dropdown container styling */
-    .dropdown-container {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin-top: 20px;
-    }
-    .dropdown {
-      display: flex;
-      flex-direction: column;
-      font-size: 14px;
-    }
-    .dropdown label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #495057;
-    }
-    select {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      cursor: pointer;
-      background: white;
-      min-width: 200px;
-    }
-    select:focus {
-      outline: 2px solid #0073e6;
-    }
-    /* Graph and Conclusion Styles */
-    /* Single Graph Container (centered) */
-    #chartdiv {
-      width: 50%;
-      height: 500px;
-      box-sizing: border-box;
-      margin: 0 auto 10px auto;
-    }
-    /* Comparison Graph Containers */
-    #chartdiv1, #chartdiv2 {
-      width: 48%;
-      height: 500px;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
-    #chartdiv1, #chartdiv2 {
-      display: inline-block;
-      vertical-align: top;
-    }
-    #chartdiv2 {
-      margin-right: 0;
-    }
-    .conclusion {
-      font-size: 18px;
-      margin-bottom: 20px;
-      text-align: center;
-      min-height: 40px; /* Reserve space for the text */
-    }
-  </style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f8f9fa;
+  }
+  h1 {
+    font-size: 32px;
+    color: #003366;
+  }
+  .badge {
+    background-color: #0073e6;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  /* Tabs styling */
+  .tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid #ccc;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+  .tabs div {
+    font-weight: bold;
+    color: #003366;
+    cursor: pointer;
+  }
+  .tabs .active {
+    border-bottom: 3px solid #0073e6;
+    padding-bottom: 5px;
+  }
+  /* Section styling */
+  .section {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .section h2 {
+    color: #003366;
+  }
+  /* Dropdown container styling */
+  .dropdown-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+    background-color: white;  /* Added white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+  }
+  .dropdown label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #495057;
+  }
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;  /* Ensures white background for the select */
+    min-width: 200px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  select:focus {
+    outline: 2px solid #0073e6;
+  }
+  /* Graph and Conclusion Styles */
+  /* Single Graph Container (centered) */
+  #chartdiv {
+    width: 50%;
+    height: 500px;
+    box-sizing: border-box;
+    margin: 0 auto 10px auto;
+  }
+  /* Comparison Graph Containers */
+  #chartdiv1, #chartdiv2 {
+    width: 48%;
+    height: 500px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  #chartdiv1, #chartdiv2 {
+    display: inline-block;
+    vertical-align: top;
+  }
+  #chartdiv2 {
+    margin-right: 0;
+  }
+  .conclusion {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 40px; /* Reserve space for the text */
+  }
+</style>
 </head>
 <body>
   <!-- Upper Heading -->
