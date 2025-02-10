@@ -189,11 +189,6 @@
   <div id="chartdiv2" style="display: none;"></div>
   <div id="conclusionCombined" class="conclusion" style="display: none;"></div>
 
-  <!-- Graphs Section (optional: for additional graph data text) -->
-  <div class="section" id="graphSection">
-    <h2>Graphs</h2>
-    <div id="graphContent"></div>
-  </div>
 
   <!-- First, add the Spine Implant data arrays -->
   <script>
@@ -657,7 +652,7 @@ function getComparativeConclusion(region1, data1, region2, data2) {
         updateContent();
       });
       document.getElementById("region").addEventListener("change", function() {
-        document.getElementById("region-compare").value = "";
+         document.getElementById("region-compare").value = "";
         updateChart();
         updateContent();
         updateComparisonDropdown();
@@ -678,10 +673,11 @@ function getComparativeConclusion(region1, data1, region2, data2) {
       "Spine Implant": {
         title: "Spine Implant - Worldwide",
         highlights: [
-          "The projected revenue in the Spine Implant market is set to reach US$50bn by 2025.",
-          "This market is expected to demonstrate a CAGR of 4.5% between 2025 and 2029, leading to a market volume of US$60bn by 2029.",
-          "The United States is anticipated to generate the highest revenue, amounting to US$18bn in 2025.",
-          "Advanced technology and innovative surgical solutions drive the global Spine Implant market."
+          "The global spine implant market is witnessing robust growth driven by increasing demand for advanced spinal solutions.",
+        "Technological advancements and innovation in implant design are key drivers of market expansion across regions.",
+        "An aging global population and rising incidence of spinal disorders are fueling higher adoption rates.",
+        "Enhanced healthcare infrastructure and increased R&D investments are propelling market growth worldwide.",
+        "Opportunities abound in both developed and emerging markets, making the global landscape highly attractive."
         ],
         // === ADD SPINE DATA: Provide your Spine Implant graph data below ===
         graphData: "Graph data for Spine Implant (Worldwide)."
@@ -689,10 +685,11 @@ function getComparativeConclusion(region1, data1, region2, data2) {
       "IVD": {
         title: "IVD Devices - Worldwide",
         highlights: [
-          "The projected revenue in the IVD Devices market is set to reach US$48.94bn by 2025.",
-          "This market is expected to grow at a CAGR of 3.89% between 2025 and 2029, reaching a market volume of US$57.02bn by 2029.",
-          "The United States is projected to generate the highest revenue, amounting to US$16,630.00m in 2025.",
-          "Strong demand for innovative diagnostic solutions and advanced technologies drives the IVD market globally."
+          "The global IVD market is estimated at roughly $89B, driven by advancements in diagnostic technologies and the increasing emphasis on early disease detection.",
+        "Robust healthcare investments and R&D initiatives are fueling steady market expansion across diverse regions.",
+        "Innovative imaging techniques and minimally invasive procedures are enhancing patient outcomes and market penetration.",
+        "A mix of mature and emerging markets creates a dynamic landscape with varied growth opportunities.",
+        "Continued technological advancements and favorable regulatory conditions are set to further propel global market growth."
         ],
         graphData: "Graph data for IVD Devices (Worldwide)."
       }
@@ -705,26 +702,65 @@ function getComparativeConclusion(region1, data1, region2, data2) {
           highlights: productData["Spine Implant"].highlights,
           graphData: productData["Spine Implant"].graphData
         },
-        "Asia": {
-          highlights: [
-            "Spine Implant in Asia: Rapid growth due to increasing demand for innovative spinal solutions.",
-            "Local manufacturing improvements are driving cost-effectiveness in Asia."
-          ],
-          graphData: "Graph data for Spine Implant in Asia."
-        },
-        "Europe": {
-          highlights: [
-            "Spine Implant in Europe: Strong focus on minimally invasive procedures.",
-            "High adoption of advanced surgical technologies is seen in Europe."
-          ],
-          graphData: "Graph data for Spine Implant in Europe."
-        },
         "North America": {
-          highlights: [
-            "Spine Implant in North America: Emphasis on technological innovation and quality.",
-            "The market shows robust revenue growth driven by advanced implant systems."
-          ],
-          graphData: "Graph data for Spine Implant in North America."
+      highlights: [
+        "Largest market with a current value of $6.71B and a steady CAGR of 4.20%, indicating robust growth.",
+        "Projected growth to approximately $10.1B by 2030 and $15.3B by 2040 if current trends continue.",
+        "Advanced healthcare infrastructure, high R&D investments, and favorable reimbursement policies drive expansion.",
+        "High adoption of advanced implant technologies and minimally invasive procedures bolsters market innovation.",
+        "An aging population and rising prevalence of spinal disorders further fuel demand."
+      ],
+      graphData: "Graph data for Spine Implant in North America."
+    },
+    "South America": {
+      highlights: [
+        "Emerging market valued at $1.28B with a CAGR of 4.57%, showing promising growth.",
+        "Expected to reach approximately $2.0B by 2030 and around $3.1B by 2040.",
+        "Improvements in healthcare access and infrastructure are creating new opportunities.",
+        "Increasing awareness of spinal health and better diagnostic capabilities support market expansion.",
+        "Regulatory reforms and growing investments in medical technology attract key industry players."
+      ],
+      graphData: "Graph data for Spine Implant in South America."
+    },
+    "Europe": {
+      highlights: [
+        "Robust market currently valued at $3.52B with an accelerated CAGR of 5.73%, ensuring strong growth.",
+        "Projections indicate growth to nearly $6.2B by 2030 and around $10.7B by 2040.",
+        "Continuous technological advancements and innovation in implant materials drive market dynamics.",
+        "High healthcare spending and substantial R&D funding support sustained expansion.",
+        "A favorable regulatory environment and stringent quality controls further encourage market growth."
+      ],
+      graphData: "Graph data for Spine Implant in Europe."
+    },
+    "Australia & Oceania": {
+      highlights: [
+        "Niche market valued at $0.39B with a moderate CAGR of 3.69%, showing steady growth.",
+        "Projected market size to reach about $0.56B by 2030 and roughly $0.81B by 2040.",
+        "High-quality healthcare systems and rigorous regulatory standards ensure market reliability.",
+        "Growing awareness of spinal disorders coupled with improved diagnostic capabilities supports expansion.",
+        "Targeted investments in healthcare technology and innovation continue to promote growth."
+      ],
+      graphData: "Graph data for Spine Implant in Australia & Oceania."
+    },
+    "Asia": {
+      highlights: [
+        "High growth potential market valued at $2.67B with a robust CAGR of 7.20%, indicating rapid expansion.",
+        "Expected to nearly double to around $5.3B by 2030 and reach approximately $10.8B by 2040.",
+        "Rapid urbanization, rising disposable incomes, and improved healthcare access drive demand.",
+        "Increasing adoption of cutting-edge medical technologies and implant innovations bolsters market growth.",
+        "Attractive opportunities exist for both new entrants and established businesses in the region."
+      ],
+      graphData: "Graph data for Spine Implant in Asia."
+    },
+    "Africa": {
+      highlights: [
+        "Emerging market currently valued at $0.30B with a conservative CAGR of 2.82%, reflecting steady growth.",
+        "Estimated to grow to about $0.40B by 2030 and near $0.52B by 2040.",
+        "Incremental investments in healthcare infrastructure and modern medical facilities are key growth drivers.",
+        "Significant untapped potential exists due to low market penetration amidst improving economic conditions.",
+        "Opportunities for market entrants offering cost-effective and innovative spine implant solutions are on the rise."
+      ],
+      graphData: "Graph data for Spine Implant in Africa."
         }
         // Add additional regions as needed...
       },
@@ -733,26 +769,65 @@ function getComparativeConclusion(region1, data1, region2, data2) {
           highlights: productData["IVD"].highlights,
           graphData: productData["IVD"].graphData
         },
-        "Asia": {
-          highlights: [
-            "IVD Devices in Asia: Strong demand for rapid and accurate diagnostic tools.",
-            "Emerging markets in Asia are investing in advanced diagnostic technologies."
-          ],
-          graphData: "Graph data for IVD Devices in Asia."
-        },
-        "Europe": {
-          highlights: [
-            "IVD Devices in Europe: Focus on regulatory compliance and high-quality standards.",
-            "Increased funding in healthcare drives innovation in IVD devices in Europe."
-          ],
-          graphData: "Graph data for IVD Devices in Europe."
-        },
         "North America": {
-          highlights: [
-            "IVD Devices in North America: Leading market with high adoption of advanced diagnostic methods.",
-            "Innovation and research significantly influence the IVD landscape in North America."
-          ],
-          graphData: "Graph data for IVD Devices in North America."
+      highlights: [
+        "The largest IVD market with a current value of $33.53B and a CAGR of 2.80%.",
+        "Projected growth to approximately $44.2B by 2030 and around $58.3B by 2040 based on current trends.",
+        "High healthcare spending and advanced diagnostic technologies drive market stability and growth.",
+        "Robust R&D investments and a well-established healthcare infrastructure foster continuous innovation.",
+        "Favorable regulatory frameworks further enhance market adoption of cutting-edge IVD solutions."
+      ],
+      graphData: "Graph data for IVD in North America."
+    },
+    "South America": {
+      highlights: [
+        "An emerging IVD market valued at $4.64B, growing at a CAGR of 3.67%.",
+        "Expected to reach around $6.65B by 2030 and approximately $9.57B by 2040.",
+        "Ongoing investments in healthcare infrastructure and diagnostic technologies are fueling market expansion.",
+        "Increasing awareness about early diagnosis and disease prevention is a key market driver.",
+        "New market entrants and innovative diagnostic solutions are creating additional growth opportunities."
+      ],
+      graphData: "Graph data for IVD in South America."
+    },
+    "Australia & Oceania": {
+      highlights: [
+        "A niche IVD market valued at $1.36B with a robust CAGR of 3.82%.",
+        "Forecasted to grow to about $1.98B by 2030 and roughly $2.88B by 2040.",
+        "High-quality healthcare systems and stringent regulatory standards enhance market reliability.",
+        "Technological innovations in diagnostic tools are key drivers of market progress.",
+        "Consistent investments in healthcare advancements support steady and sustainable growth."
+      ],
+      graphData: "Graph data for IVD in Australia & Oceania."
+    },
+    "Asia": {
+      highlights: [
+        "A high-growth IVD market valued at $25.5B with a CAGR of 4.05%, indicating strong expansion.",
+        "Projected market size to reach around $37.9B by 2030 and approximately $56.4B by 2040.",
+        "Rapid urbanization, rising disposable incomes, and increased healthcare investments drive demand.",
+        "Technological advancements and a focus on early diagnostic solutions bolster market dynamics.",
+        "Both local and international players are capitalizing on emerging opportunities in the region."
+      ],
+      graphData: "Graph data for IVD in Asia."
+    },
+    "Africa": {
+      highlights: [
+        "An emerging IVD market valued at $1.72B, growing at a CAGR of 3.71%.",
+        "Expected to grow to about $2.48B by 2030 and roughly $3.56B by 2040.",
+        "Incremental improvements in healthcare infrastructure and access are key market drivers.",
+        "Growing awareness and demand for early disease detection are gradually expanding market potential.",
+        "Opportunities for cost-effective and innovative IVD solutions are on the rise as the market matures."
+      ],
+      graphData: "Graph data for IVD in Africa."
+    },
+    "Europe": {
+      highlights: [
+        "A robust IVD market valued at $22.4B with a CAGR of 2.96%, ensuring steady growth.",
+        "Forecasted to reach around $30.0B by 2030 and approximately $40.2B by 2040.",
+        "Strong healthcare infrastructure, high R&D investments, and favorable regulatory environments drive market expansion.",
+        "Continuous technological advancements and focus on minimally invasive diagnostic methods contribute to growth.",
+        "Mature market dynamics and stable economic conditions foster consistent demand for advanced IVD solutions."
+      ],
+      graphData: "Graph data for IVD in Europe."
         }
         // Add additional regions as needed...
       }
