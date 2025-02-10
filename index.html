@@ -195,6 +195,45 @@
     <div id="graphContent"></div>
   </div>
 
+  <!-- First, add the Spine Implant data arrays -->
+  <script>
+    var SpineImplant_All_Regions = [
+      { country: "North America",        marketValue: 6.71, cagr: 4.20, flag: "" },
+      { country: "South America",        marketValue: 1.28,  cagr: 4.57, flag: "" },
+      { country: "Australia & Oceania",  marketValue: 0.39,  cagr: 3.69, flag: "" },
+      { country: "Asia",                 marketValue: 2.67,  cagr: 7.20, flag: "" },
+      { country: "Africa",               marketValue: 0.30,  cagr: 2.82, flag: "" },
+      { country: "Europe",               marketValue: 3.52,  cagr: 5.73, flag: "" }
+    ];
+
+    var SpineImplant_Asia = [
+      { country: "South Korea",  marketValue: 0.29,  cagr: 6.7,  flag: "https://flagcdn.com/w20/kr.png" },
+      { country: "China",        marketValue: 0.91,  cagr: 6.4,  flag: "https://flagcdn.com/w20/cn.png" },
+      { country: "India",        marketValue: 0.3,   cagr: 8.5,  flag: "https://flagcdn.com/w20/in.png" },
+      { country: "Vietnam",      marketValue: 0.04,  cagr: 7.2,  flag: "https://flagcdn.com/w20/vn.png" },
+      { country: "UAE",          marketValue: 0.21,  cagr: 4.83, flag: "https://flagcdn.com/w20/ae.png" },
+      { country: "Saudi Arabia", marketValue: 0.33,  cagr: 6.0,  flag: "https://flagcdn.com/w20/sa.png" }
+    ];
+
+    var SpineImplant_Europe = [
+      { country: "UK", marketValue: 0.58, cagr: 5.3, flag: "https://flagcdn.com/w20/gb.png" }
+    ];
+
+    var SpineImplant_SouthAmerica = [
+      { country: "Brazil",   marketValue: 0.025, cagr: 4.5, flag: "https://flagcdn.com/w20/br.png" },
+      { country: "Colombia", marketValue: 0.12,  cagr: 6.2, flag: "https://flagcdn.com/w20/co.png" }
+    ];
+
+    var SpineImplant_NorthAmerica = [
+      { country: "USA", marketValue: 6.59, cagr: 1.5, flag: "https://flagcdn.com/w20/us.png" }
+    ];
+
+    var SpineImplant_Africa = [
+      { country: "South Africa", marketValue: 0.008, cagr: 6.1, flag: "https://flagcdn.com/w20/za.png" },
+      { country: "Egypt",        marketValue: 0.04,  cagr: 6.7, flag: "https://flagcdn.com/w20/eg.png" }
+    ];
+  </script>
+
   <!-- amCharts and Graph Code -->
   <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
   <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
@@ -346,7 +385,23 @@
             case "Australia": return IVD_Australia;
             default: return IVD_All_Regions;
           }
+        } else if (product === "Spine Implant") {
+          switch (region) {
+            case "Worldwide": return SpineImplant_All_Regions;
+            case "Asia": return SpineImplant_Asia;
+            case "Europe": return SpineImplant_Europe;
+            case "North America": return SpineImplant_NorthAmerica;
+            case "South America": return SpineImplant_SouthAmerica;
+            case "Africa": return SpineImplant_Africa;
+            case "Australia":
+              // For Australia, return the "Australia & Oceania" entry from the Worldwide array.
+              return SpineImplant_All_Regions.filter(function(item) {
+                return item.country.indexOf("Australia") !== -1;
+              });
+            default: return SpineImplant_All_Regions;
+          }
         } else {
+          // fallback or random data generation for other products if needed
           var countries = ["USA", "China", "Japan", "Germany", "UK", "France", "India", "Spain", "Netherlands", "South Korea", "Canada"];
           var config = productConfig[product] || { minValue: 500, maxValue: 1500, minCagr: 5, maxCagr: 15 };
           return countries.map(function(country) {
@@ -383,48 +438,78 @@
        * Conclusion Generation Functions
        ***********************/
       
-      // Single chart conclusion.
-      function getConclusion(data) {
-        if (!data || data.length === 0) return "";
-        var marketLeader = data[0], growthLeader = data[0];
-        data.forEach(function(item) {
-          if (parseFloat(item.marketValue) > parseFloat(marketLeader.marketValue)) {
-            marketLeader = item;
-          }
-          if (parseFloat(item.cagr) > parseFloat(growthLeader.cagr)) {
-            growthLeader = item;
-          }
-        });
-        return marketLeader.country + " leads in Market Value ($" + parseFloat(marketLeader.marketValue).toFixed(2) + "B, " +
-               marketLeader.cagr + "% CAGR), while " + growthLeader.country + " surpasses in growth (" +
-               growthLeader.cagr + "%, $" + parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
-      }
+// Single chart conclusion.
+function getConclusion(data) {
+  if (!data || data.length === 0) return "";
+  // If only one country is available, output a simple message.
+  if (data.length === 1) {
+    var onlyCountry = data[0];
+    return "In this region, " + onlyCountry.country + " is the only available data point with a market value of $" +
+           parseFloat(onlyCountry.marketValue).toFixed(2) + "B and a CAGR of " + onlyCountry.cagr + "%.";
+  }
+  var marketLeader = data[0], growthLeader = data[0];
+  data.forEach(function(item) {
+    if (parseFloat(item.marketValue) > parseFloat(marketLeader.marketValue)) {
+      marketLeader = item;
+    }
+    if (parseFloat(item.cagr) > parseFloat(growthLeader.cagr)) {
+      growthLeader = item;
+    }
+  });
+  // If both leaders are the same, avoid repeating.
+  if (marketLeader === growthLeader) {
+    return marketLeader.country + " dominates with a market value of $" +
+           parseFloat(marketLeader.marketValue).toFixed(2) + "B and a CAGR of " + marketLeader.cagr + "%.";
+  }
+  return marketLeader.country + " leads in Market Value ($" + parseFloat(marketLeader.marketValue).toFixed(2) +
+         "B, " + marketLeader.cagr + "% CAGR), while " + growthLeader.country + " surpasses in growth (" +
+         growthLeader.cagr + "%, $" + parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
+}
 
-      // Comparative conclusion for two regions.
-      function getComparativeConclusion(region1, data1, region2, data2) {
-        function getRegionConclusion(regionName, data, style) {
-          var marketLeader = data[0], growthLeader = data[0];
-          data.forEach(function(item) {
-            if (parseFloat(item.marketValue) > parseFloat(marketLeader.marketValue)) {
-              marketLeader = item;
-            }
-            if (parseFloat(item.cagr) > parseFloat(growthLeader.cagr)) {
-              growthLeader = item;
-            }
-          });
-          if (style === 1) {
-            return "For " + regionName + ", " + marketLeader.country + " ($" + parseFloat(marketLeader.marketValue).toFixed(2) + "B, " + marketLeader.cagr + "% CAGR) dominates the market value, while " +
-                   growthLeader.country + " leads in growth (" + growthLeader.cagr + "%, $" + parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
-          } else {
-            return "For " + regionName + ", " + marketLeader.country + " ($" + parseFloat(marketLeader.marketValue).toFixed(2) + "B, " + marketLeader.cagr + "% CAGR) holds the highest market value, but " +
-                   growthLeader.country + " outpaces in growth (" + growthLeader.cagr + "%, $" + parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
-          }
-        }
-        var conclusion1 = getRegionConclusion(region1, data1, 1);
-        var conclusion2 = getRegionConclusion(region2, data2, 2);
-        return conclusion1 + " Similarly, " + conclusion2;
+// Comparative conclusion for two regions.
+function getComparativeConclusion(region1, data1, region2, data2) {
+  function getRegionConclusion(regionName, data, style) {
+    if (!data || data.length === 0) return "No data available for " + regionName + ".";
+    // If only one country is available, output a simple message.
+    if (data.length === 1) {
+      var onlyCountry = data[0];
+      return "For " + regionName + ", " + onlyCountry.country +
+             " is the only available data point with a market value of $" +
+             parseFloat(onlyCountry.marketValue).toFixed(2) + "B and a CAGR of " + onlyCountry.cagr + "%.";
+    }
+    var marketLeader = data[0], growthLeader = data[0];
+    data.forEach(function(item) {
+      if (parseFloat(item.marketValue) > parseFloat(marketLeader.marketValue)) {
+        marketLeader = item;
       }
-
+      if (parseFloat(item.cagr) > parseFloat(growthLeader.cagr)) {
+        growthLeader = item;
+      }
+    });
+    // If both leaders are the same, use a simpler message.
+    if (marketLeader === growthLeader) {
+      return "For " + regionName + ", " + marketLeader.country +
+             " is the only dominant player with a market value of $" +
+             parseFloat(marketLeader.marketValue).toFixed(2) + "B and a CAGR of " + marketLeader.cagr + "%.";
+    }
+    if (style === 1) {
+      return "For " + regionName + ", " + marketLeader.country + " ($" +
+             parseFloat(marketLeader.marketValue).toFixed(2) + "B, " + marketLeader.cagr +
+             "% CAGR) dominates the market value, while " + growthLeader.country +
+             " leads in growth (" + growthLeader.cagr + "%, $" +
+             parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
+    } else {
+      return "For " + regionName + ", " + marketLeader.country + " ($" +
+             parseFloat(marketLeader.marketValue).toFixed(2) + "B, " + marketLeader.cagr +
+             "% CAGR) holds the highest market value, but " + growthLeader.country +
+             " outpaces in growth (" + growthLeader.cagr + "%, $" +
+             parseFloat(growthLeader.marketValue).toFixed(2) + "B).";
+    }
+  }
+  var conclusion1 = getRegionConclusion(region1, data1, 1);
+  var conclusion2 = getRegionConclusion(region2, data2, 2);
+  return conclusion1 + " Similarly, " + conclusion2;
+}
       /***********************
        * Chart Creation Function
        ***********************/
@@ -572,6 +657,7 @@
         updateContent();
       });
       document.getElementById("region").addEventListener("change", function() {
+        document.getElementById("region-compare").value = "";
         updateChart();
         updateContent();
         updateComparisonDropdown();
